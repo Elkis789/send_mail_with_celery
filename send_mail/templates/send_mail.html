@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'send_mail.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Envoie mail par celery</title>
+</head>
+<body>
+    <div class="container p-5">
+        <div class='d-flex justify-content-between border-bottom mb-5'>
+            <p><img src="{% static 'favicon.png' %}" alt="favicon.png" class='img-fluid'>  Messagerie</p>
+            <div>
+                <label for="upload-file" class="custom-file-upload">
+                    <i class="bi bi-file-earmark-arrow-up"></i> <span>Joindre un document</span>
+                </label>
+            </div>
+        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="subject" class='form-label'>Objet</label>
+                <input type="text" class='form-control' id='subject' name='subject'>
+            </div>
+            <div class="mb-3">
+                <label for="email" class='form-label'>Adresse mail</label>
+                <input type="email" class='form-control' id='email' name='email'>
+            </div>
+             <div class="mb-3">
+                <label for="message" class='form-label'>Message</label>
+                <textarea name="message" id="message" rows="4" class='form-control'></textarea>
+            </div>
+            <input type="file" id="upload-file" style="display: none;" name="file">
+            <button class='w-100 btn btn-dark'>Envoyer</button>
+        </form>
+    </div>
+    <script src="{% static 'bootstrap.js' %}"></script>
+    <script src="{% static 'send_mail.js' %}"></script>
+</body>
+</html>

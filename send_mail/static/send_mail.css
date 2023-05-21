@@ -1,0 +1,12 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+label{
+    cursor: pointer;
+}
+label span{
+    font-size: 12px;
+}
+.bi-file-earmark-arrow-up{
+    font-size: 25px;
+}
