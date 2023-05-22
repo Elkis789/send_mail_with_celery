@@ -7,6 +7,16 @@ label{
 label span{
     font-size: 12px;
 }
-.bi-file-earmark-arrow-up{
-    font-size: 25px;
+.bi-paperclip{
+    font-size: 20px;
+}
+
+#valid-subject,
+#valid-email,
+#valid-message
+{
+    color: red;
+    font-size: 11px;
+    display: none;
+    padding-top: 5px;
 }
