@@ -8,4 +8,5 @@ def send_mail(request):
         print(subject, email, message)
         if 'file' in request.FILES:
             file = request.FILES['file']
+            print(file)
     return render(request, 'send_mail.html')
