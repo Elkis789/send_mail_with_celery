@@ -15,16 +15,16 @@
     <title>Envoie mail par celery</title>
 </head>
 <body>
-    <div class="container p-5">
+    <div class="container p-4">
         <div class='d-flex justify-content-between border-bottom mb-5'>
             <p><img src="{% static 'favicon.png' %}" alt="favicon.png" class='img-fluid'>  Messagerie</p>
-            <div>
-                <label for="upload-file" class="custom-file-upload">
-                    <i class="bi bi-paperclip"></i><span> Joindre un fichier</span>
-                </label>
-            </div>
         </div>
-        <form action="" method="post" enctype="multipart/form-data" id='form'>
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{message.tags}} text-center mt-3">{{message}}</div>
+        {% endfor %}
+        {% endif %}
+        <form action="" method="post" id='form'>
             {% csrf_token %}
             <div class="mb-3">
                 <label for="subject" class='form-label'>Objet</label>
@@ -41,8 +41,7 @@
                 <textarea name="message" id="message" rows="4" class='form-control'></textarea>
                  <small id='valid-message'></small>
             </div>
-            <input type="file" id="upload-file" style="display: none;" name="file">
-            <button class='w-100 btn btn-dark'><i class="bi bi-send"></i> Envoyer</button>
+            <button class='w-100 btn btn-dark'>Envoyer</button>
         </form>
     </div>
     <script src="{% static 'bootstrap.js' %}"></script>
